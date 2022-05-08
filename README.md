@@ -1,4 +1,4 @@
-__SOKOBAN__ <br/>
+# __SOKOBAN__ <br/>
 > Sokoban (warehouse keeper in Japanese) is a type of transport puzzle, in which
 > the player pushes boxes or crates around in a warehouse, trying to get them to
 > storage locations. The puzzle is usually implemented as a video game.
@@ -12,14 +12,16 @@ __SOKOBAN__ <br/>
 > Boxes may not be pushed into other boxes or walls, and they cannot be pulled.
 > The puzzle is solved when all boxes are at storage locations.
 <br/>
-USAGE<br/>
+## Auteur : @Leandre17
+
+### USAGE<br/>
 &emsp;&ensp;git clone git@github.com:Leandre17/Epitech-Sokoban.git<br/>
 &emsp;&ensp;make re<br/>
 &emsp;&ensp;./my_sokoban&nbsp;map<br/>
 &emsp;&ensp;or to a beta vertion with bonus feature<br/>
 &emsp;&ensp;git checkout bonus<br/>
 &emsp;&ensp;make re<br/>
-&emsp;&ensp;./my_sokoban<br/>
-DESCRIPTION<br/>
+&emsp;&ensp;./my_sokoban<br/><br/>
+### DESCRIPTION<br/>
 &emsp;&ensp;map&nbsp;file&nbsp;representing&nbsp;the&nbsp;warehouse&nbsp;map,&nbsp;containing&nbsp;‘#’&nbsp;for&nbsp;walls,<br/>
 &emsp;&emsp;&ensp;‘P’&nbsp;for&nbsp;the&nbsp;player,&nbsp;‘X’&nbsp;for&nbsp;boxes&nbsp;and&nbsp;‘O’&nbsp;for&nbsp;storage&nbsp;locations.<br/>
