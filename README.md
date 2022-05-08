@@ -13,12 +13,12 @@ __SOKOBAN__ <br/>
 > The puzzle is solved when all boxes are at storage locations.
 <br/>
 USAGE<br/>
-&emsp;&ensp;git clone git@github.com:Leandre17/Epitech-Sokoban.git
-&emsp;&ensp;make re
-&emsp;&ensp;./my_sokoban&nbsp;map
-&emsp;&ensp;or to a beta vertion with bonus feature
-&emsp;&ensp;git checkout bonus
-&emsp;&ensp;make re
+&emsp;&ensp;git clone git@github.com:Leandre17/Epitech-Sokoban.git<br/>
+&emsp;&ensp;make re<br/>
+&emsp;&ensp;./my_sokoban&nbsp;map<br/>
+&emsp;&ensp;or to a beta vertion with bonus feature<br/>
+&emsp;&ensp;git checkout bonus<br/>
+&emsp;&ensp;make re<br/>
 &emsp;&ensp;./my_sokoban<br/>
 DESCRIPTION<br/>
 &emsp;&ensp;map&nbsp;file&nbsp;representing&nbsp;the&nbsp;warehouse&nbsp;map,&nbsp;containing&nbsp;‘#’&nbsp;for&nbsp;walls,<br/>
