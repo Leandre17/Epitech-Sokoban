@@ -12,6 +12,7 @@
 > Boxes may not be pushed into other boxes or walls, and they cannot be pulled.
 > The puzzle is solved when all boxes are at storage locations.
 <br/>
+
 ## Auteur : @Leandre17
 
 ### USAGE<br/>
