@@ -30,7 +30,6 @@ SRC = 	my_swap.c \
 		my_str_isalphanum.c \
 		my_strupcase.c \
 		my_move_char.c \
-		my_check_env.c \
 		my_strlowcase.c \
 		my_str_islower.c \
 		my_str_isalpha.c \

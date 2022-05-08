@@ -8,36 +8,24 @@
 #include "soka.h"
 #include "my.h"
 
-void show_str(char *str, int len)
-{
-    for (int i = 0; str[i] != '\0'; i++) {
-        if (str[i] == '@')
-            mvprintw(len, i, "X");
-        else
-            mvprintw(len, i, "%c", str[i]);
-    }
-}
-
 void show_map(player_t *player)
 {
     int map_len = 0;
 
     while (player->map->map[map_len] != NULL) {
-        show_str(player->map->map[map_len], map_len);
+        mvwprintw(player->win, map_len, 0, player->map->map[map_len]);
         map_len++;
     }
 }
 
-player_t *game_loop(player_t *player)
+void game_loop(player_t *player)
 {
-    int taille = my_strlen(Terminal_low);
-
-    if (LINES < player->map->nb_rows || COLS < player->map->nb_cols)
-        mvprintw(LINES/2, (COLS / 2) - (taille / 2), Terminal_low);
-    else {
-        player = play_loop(player);
-        show_map(player);
-        mvaddch(player->posy, player->posx, 'P');
-    }
-    return can_be_moved(player);
+    wattron(player->win, COLOR_PAIR(1));
+    play_loop(player);
+    show_map(player);
+    mvwaddch(player->win, player->pos.y, player->pos.x, 'P');
+    wattroff(player->win, COLOR_PAIR(1));
+    can_be_moved(player);
+    if (player->map->to_fill < player->map->filled || player->block)
+        return end_menu(player);
 }

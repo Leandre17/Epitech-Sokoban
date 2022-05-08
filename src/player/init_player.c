@@ -12,12 +12,15 @@ player_t *init_player(char const *filename)
 {
     player_t *player = malloc(sizeof(player_t) + 1);
 
-    player->minx = 1;
-    player->miny = 1;
+    init_win();
+    player->min.x = 1;
+    player->min.y = 1;
     player->ch = 'a';
     player->boxs = malloc(sizeof(box_t));
-    player = map_init(filename, player);
+    map_init(filename, player);
     player->block = 0;
+    player->win = newwin(player->map->nb_rows, player->map->nb_cols, 1, \
+     COLS / 2 - player->map->nb_cols / 2);
     return player;
 }
 

@@ -5,7 +5,6 @@
 ** start
 */
 #include <stdlib.h>
-#include <signal.h>
 #include "my.h"
 #include "soka.h"
 
@@ -13,14 +12,18 @@ void init_win(void)
 {
     initscr();
     curs_set(0);
+    cbreak();
     keypad(stdscr, TRUE);
     noecho();
+    start_color();
+    init_pair(1, COLOR_MAGENTA, COLOR_BLACK);
+    init_pair(2, COLOR_BLUE, COLOR_WHITE);
 }
 
-void destroy_win(player_t *player)
+void delete_win(player_t *player)
 {
-    delwin(stdscr);
     endwin();
+    delwin(player->win);
     free_tab(player->map->map);
     free(player->map);
     free(player);
@@ -28,19 +31,15 @@ void destroy_win(player_t *player)
 
 int start(char const *filename)
 {
-    player_t * player = init_player(filename);
-    int result = 0;
+    player_t *player = init_player(filename);
 
-    init_win();
-    player = game_loop(player);
-    while (player->map->to_fill > player->map->filled && !player->block) {
-        player->ch = getch();
-        clear();
-        player = game_loop(player);
+    while (1) {
+        wclear(player->win);
+        menu_menu(player);
         refresh();
+        wrefresh(player->win);
+        player->ch = getch();
     }
-    if (player->map->to_fill > player->map->filled)
-        result = 1;
-    destroy_win(player);
-    return result;
+    delete_win(player);
+    return 0;
 }

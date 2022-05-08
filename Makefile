@@ -23,6 +23,22 @@ SRC = 	src/main.c \
 		src/player/init_player.c \
 		src/player/loop_player.c \
 		src/player/move_player.c \
+		src/menu/global_menu/menu.c \
+		src/menu/files_menu/file_menu.c \
+		src/menu/files_menu/open_menu.c \
+		src/menu/global_menu/end_menu.c \
+		src/menu/global_menu/quit_menu.c \
+		src/menu/global_menu/start_menu.c \
+		src/menu/edit_menu/edit/quit_edit.c \
+		src/menu/files_menu/open_map_menu.c \
+		src/menu/edit_menu/edit/edit_loop.c \
+		src/menu/edit_menu/edit/edit_menu.c \
+		src/menu/edit_menu/create/save_map.c \
+		src/menu/edit_menu/create/create_new.c \
+		src/menu/edit_menu/edit/edit_current.c \
+		src/menu/edit_menu/edit/play_new_map.c \
+		src/menu/edit_menu/create/create_map.c \
+		src/menu/edit_menu/create/create_menu.c \
 
 OBJ = $(SRC:.c=.o)
 
@@ -42,7 +58,6 @@ clean:
 fclean: clean
 		rm -f $(NAME)
 		make fclean -C lib/my/
-		make fclean -C tests
 
 tests_run:
 		make re -C tests

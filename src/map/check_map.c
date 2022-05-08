@@ -8,10 +8,9 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdlib.h>
-#include "my.h"
 #include "soka.h"
 
-int check_map(char const *filepath, char *map)
+int check_map(char *map)
 {
     int nb_box = 0;
     int nb_holes = 0;
@@ -29,20 +28,20 @@ int check_map(char const *filepath, char *map)
     free(map);
     if (perso != 1 || nb_holes != nb_box)
         return 84;
-    return start(filepath);
+    return 0;
 }
 
-int check_error(char const *filepath, char **env)
+int check_error(char const *filepath)
 {
     int err = open(filepath, O_RDONLY);
     int size = 0;
     char *buffer = malloc(sizeof(char) * 10241024);
 
-    if (err < 0 || env == NULL)
+    if (err < 0)
         return 84;
     size = read(err, buffer, 10241024);
     buffer[size] = '\0';
-    if (is_in_env("TERM", env) == -1)
+    if (check_map(buffer) == 84)
         return 84;
-    return check_map(filepath, buffer);
+    return start(filepath);
 }

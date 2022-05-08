@@ -8,22 +8,23 @@
 #include "my.h"
 #include "soka.h"
 
-player_t *reset_map(player_t *player)
+void reset_map(player_t *player)
 {
     char *str = player->map->save;
 
-    player->minx = 1;
-    player->miny = 1;
+    player->min.x = 1;
+    player->min.y = 1;
+    free_tab(player->map->map);
     player->map->map = my_str_to_word_array(str);
-    player->maxx = player->map->nb_cols - 1;
-    player->maxy = player->map->nb_rows - 1;
-    player = get_player_pos(player);
+    player->max.x = player->map->nb_cols - 1;
+    player->max.y = player->map->nb_rows - 1;
+    get_player_pos(player);
     player->map->filled = 0;
     player->block = 0;
-    return player;
 }
 
-player_t *play_loop(player_t *player)
+
+void play_loop(player_t *player)
 {
     switch (player->ch) {
         case KEY_LEFT:
@@ -37,5 +38,4 @@ player_t *play_loop(player_t *player)
         case ' ':
             return reset_map(player);
     }
-    return player;
 }

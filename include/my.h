@@ -61,5 +61,5 @@ char **my_env_copy(char const **env);
 char *my_move_char_by_one(char *str, int pos);
 void my_printf(const char *str, ...);
 void free_tab(char **tab);
-int is_in_env(char *name, char **env);
+int len_array(char **array);
 #endif

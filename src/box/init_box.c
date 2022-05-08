@@ -11,7 +11,6 @@
 box_t *maillon(box_t *list, int x, int y)
 {
     box_t *element = malloc(sizeof(box_t));
-
     if (element == NULL)
         return NULL;
     element->x = x;

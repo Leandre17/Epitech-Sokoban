@@ -33,7 +33,7 @@ bool is_wall_despues(box_t *box, player_t *player)
     return false;
 }
 
-player_t *can_be_moved(player_t *player)
+void can_be_moved(player_t *player)
 {
     box_t *box = box_init(player);
     int count = 0;
@@ -44,9 +44,6 @@ player_t *can_be_moved(player_t *player)
         count++;
         box = box->next;
     }
-    if (count2 >= count)
+    if (count == count2)
         player->block = 1;
-    else
-        player->block = 0;
-    return player;
 }

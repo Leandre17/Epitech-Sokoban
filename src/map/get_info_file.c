@@ -9,20 +9,15 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include "soka.h"
-#include "my.h"
 
-int find_col(char **array)
+int find_col(char *str)
 {
     int col = 0;
-    int old = 0;
 
-    for (int i = 0; array[i] != NULL; i++) {
-        col = my_strlen(array[i]);
-        if (col >= old) {
-            old = col;
-        }
+    for (int i = 0; str[i] != '\n'; i++) {
+        col += 1;
     }
-    return old;
+    return col;
 }
 
 int find_row(char *str)
