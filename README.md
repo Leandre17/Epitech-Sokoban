@@ -15,6 +15,8 @@
 
 ## Auteur : @Leandre17
 
+---
+
 ### USAGE<br/>
 &emsp;&ensp;git clone git@github.com:Leandre17/Epitech-Sokoban.git<br/>
 &emsp;&ensp;make re<br/>
