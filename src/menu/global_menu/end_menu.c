@@ -29,7 +29,10 @@ void end_menu(player_t *player)
     void (*functions[])(player_t *) = {reset_map, quit_menu, open_map, 0};
 
     clear();
-    mvprintw(LINES / 2 - 1, COLS / 2 - 9, "You reach the end");
+    if (player->map->to_fill <= player->map->filled)
+        mvprintw(LINES / 2 - 1, COLS / 2 - 9, "Congratulations!");
+    else
+        mvprintw(LINES / 2 - 1, COLS / 2 - 9, "You reach the end");
     all_end_menu(player);
     player->ch = getch();
     if (player->ch != '\n')

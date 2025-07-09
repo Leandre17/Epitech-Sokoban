@@ -26,6 +26,6 @@ void game_loop(player_t *player)
     mvwaddch(player->win, player->pos.y, player->pos.x, 'P');
     wattroff(player->win, COLOR_PAIR(1));
     can_be_moved(player);
-    if (player->map->to_fill < player->map->filled || player->block)
+    if (player->map->to_fill <= player->map->filled || player->block)
         return end_menu(player);
 }
